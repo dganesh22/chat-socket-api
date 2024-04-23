@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+app.use(`/`, async (req,res)=> {
+    return res.status(201).json({ status: true, msg: "Welcome to Chat API"})
+})
+
 socketIO.on("connection", (socket) => {
   console.log(`${socket.id} user is just connected`);
 
